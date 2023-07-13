@@ -16,3 +16,5 @@ fs.readdirSync(currentPath).filter((file) => {
     });
   }
 });
+
+export { router };
