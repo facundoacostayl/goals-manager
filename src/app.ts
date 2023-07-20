@@ -1,17 +1,35 @@
 import express from "express";
-import cors from "cors";
+import { ApolloServer } from "@apollo/server";
+import { expressMiddleware } from "@apollo/server/express4";
 import http from "http";
-import { router } from "./routes/index.route";
+import cors from "cors";
 
+//Express
 const app = express();
-const server = http.createServer(app);
+
+//http Server
+const httpServer = http.createServer(app);
+
+//Port
 const port = process.env.PORT || 4000;
 
-//Middlewares
-app.use(cors());
-app.use(express.json());
+//Start Server
+const startApolloServer = async (typeDefs, resolvers) => {
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+  });
 
-//Routes
-app.use("/api/1.0", router);
+  await server.start();
 
-export { app, port, server };
+  //Middleware
+  app.use("/graphql", cors(), express.json(), expressMiddleware(server));
+
+  await new Promise(() =>
+    httpServer.listen({
+      port,
+    })
+  );
+};
+
+export { startApolloServer, port };

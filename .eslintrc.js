@@ -16,6 +16,6 @@ module.exports = {
   },
   plugins: ["@typescript-eslint"],
   rules: {
-    quotes: [2, "double", { avoidEscape: true }],
+    quotes: [2, "double", { avoidEscape: true, allowTemplateLiterals: true }],
   },
 };

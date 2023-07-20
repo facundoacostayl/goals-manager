@@ -1,9 +1,10 @@
-import { server, port } from "./app";
-import { wsConnect } from "./config/websockets/connection";
+import { startApolloServer } from "./app";
+import { typeDefs } from "./config/gql/schemas/type-defs";
+import { resolvers } from "./config/gql/schemas/resolvers";
 
-const main = () => {
+const main = async () => {
   try {
-    const httpServer = server.listen(port);
+    await startApolloServer(typeDefs, resolvers);
     console.log("Server is Online");
   } catch (e) {
     console.error(e);
