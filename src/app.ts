@@ -1,6 +1,8 @@
 import express from "express";
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
+import { typeDefs } from "./config/gql/schemas/type-defs.js";
+import { resolvers } from "./config/gql/schemas/resolvers.js";
 import http from "http";
 import cors from "cors";
 
@@ -14,7 +16,7 @@ const httpServer = http.createServer(app);
 const port = process.env.PORT || 4000;
 
 //Start Server
-const startApolloServer = async (typeDefs, resolvers) => {
+const startApolloServer = async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
