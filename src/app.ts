@@ -17,21 +17,25 @@ const port = process.env.PORT || 4000;
 
 //Start Server
 const startApolloServer = async () => {
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-  });
+  try {
+    const server = new ApolloServer({
+      typeDefs,
+      resolvers,
+    });
 
-  await server.start();
+    await server.start();
 
-  //Middleware
-  app.use("/graphql", cors(), express.json(), expressMiddleware(server));
+    //Middleware
+    app.use("/graphql", cors(), express.json(), expressMiddleware(server));
 
-  await new Promise(() =>
-    httpServer.listen({
-      port,
-    })
-  );
+    await new Promise(() =>
+      httpServer.listen({
+        port,
+      })
+    );
+  } catch (error) {
+    error instanceof Error && console.error(error.message);
+  }
 };
 
 export { startApolloServer, port };

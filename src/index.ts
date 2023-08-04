@@ -4,7 +4,7 @@ import { connectDB } from "./config/db/connection.js";
 const main = async () => {
   try {
     await connectDB();
-    //await startApolloServer();
+    await startApolloServer();
     console.log("Server is Online");
   } catch (e) {
     console.error(e);
