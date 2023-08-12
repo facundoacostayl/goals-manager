@@ -6,11 +6,15 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    sendMessage(input: String): String
+    createGoal(name: String, description: String): Goal
   }
 
-  type Subscription {
-    newMessage: String
+  type Goal {
+    _id: ID
+    name: String
+    description: String
+    createdAt: String
+    updatedAt: String
   }
 `;
 
