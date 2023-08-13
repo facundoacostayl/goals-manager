@@ -2,7 +2,7 @@ import { gql } from "graphql-tag";
 
 const typeDefs = gql`
   type Query {
-    getMessage: String
+    goals: [Goal]
   }
 
   type Mutation {

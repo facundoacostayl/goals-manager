@@ -3,7 +3,7 @@ import { models } from "../../../models/mongo/index.js";
 
 const resolvers = {
   Query: {
-    getMessage: () => "Hello World",
+    goals: async () => await models.GoalModel.find(),
   },
   Mutation: {
     createGoal: async (_: any, { name, description }: Goal) => {
