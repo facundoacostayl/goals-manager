@@ -22,17 +22,23 @@ const resolvers = {
     deleteGoal: async (_: any, _id: string) => {
       try {
         const deletedGoal = await GoalModel.findByIdAndDelete(_id);
-        if (!deletedGoal) throw new Error("Task not found");
+        if (!deletedGoal) throw new Error("Goal not found");
         return deletedGoal;
       } catch (e) {
         e instanceof Error && console.error(e.message);
       }
     },
     updateGoal: async (_: any, args: Goal) => {
-      const updatedGoal = await GoalModel.findByIdAndUpdate(args._id, args, {
-        new: true
-      })
-    }
+      try {
+        const updatedGoal = await GoalModel.findByIdAndUpdate(args._id, args, {
+          new: true,
+        });
+        if (!updatedGoal) throw new Error("Goal not found");
+        return updatedGoal;
+      } catch (e) {
+        e instanceof Error && console.error(e.message);
+      }
+    },
     createTask: async (_: any, { description, projectId }: Task) => {
       try {
         const goalFound = await GoalModel.findById(projectId);
@@ -50,6 +56,17 @@ const resolvers = {
         const deletedTask = await TaskModel.findByIdAndDelete(_id);
         if (!deletedTask) throw new Error("Task not found");
         return deletedTask;
+      } catch (e) {
+        e instanceof Error && console.error(e.message);
+      }
+    },
+    updateTask: async (_: any, args: Goal) => {
+      try {
+        const updatedTask = await GoalModel.findByIdAndUpdate(args._id, args, {
+          new: true,
+        });
+        if (!updatedTask) throw new Error("Task not found");
+        return updatedTask;
       } catch (e) {
         e instanceof Error && console.error(e.message);
       }

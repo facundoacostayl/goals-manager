@@ -11,7 +11,7 @@ const typeDefs = gql`
   type Mutation {
     createGoal(name: String, description: String): Goal
     deleteGoal(_id: ID): Task
-    updateGoal(_id: ID, name: String, description: String) Goal
+    updateGoal(_id: ID, name: String, description: String): Goal
     createTask(description: String, projectId: ID): Task
     deleteTask(_id: ID): Task
     updateTask(_id: ID, description: String, projectId: String): Task
