@@ -28,6 +28,11 @@ const resolvers = {
         e instanceof Error && console.error(e.message);
       }
     },
+    updateGoal: async (_: any, args: Goal) => {
+      const updatedGoal = await GoalModel.findByIdAndUpdate(args._id, args, {
+        new: true
+      })
+    }
     createTask: async (_: any, { description, projectId }: Task) => {
       try {
         const goalFound = await GoalModel.findById(projectId);
