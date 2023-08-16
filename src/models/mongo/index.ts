@@ -6,4 +6,4 @@ const models = {
   TaskModel,
 };
 
-export { models };
+export { GoalModel, TaskModel };

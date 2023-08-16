@@ -3,7 +3,9 @@ import { gql } from "graphql-tag";
 const typeDefs = gql`
   type Query {
     goals: [Goal]
+    goal(_id: ID): Goal
     tasks: [Task]
+    task(_id: ID): Task
   }
 
   type Mutation {
