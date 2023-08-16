@@ -10,7 +10,9 @@ const typeDefs = gql`
 
   type Mutation {
     createGoal(name: String, description: String): Goal
+    deleteGoal(_id: ID): Task
     createTask(description: String, projectId: ID): Task
+    deleteTask(_id: ID): Task
   }
 
   type Goal {
