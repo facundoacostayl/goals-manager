@@ -23,6 +23,7 @@ const typeDefs = gql`
     description: String
     createdAt: String
     updatedAt: String
+    tasks: [Task]
   }
 
   type Task {

@@ -73,6 +73,10 @@ const resolvers = {
       }
     },
   },
+  Goal: {
+    tasks: async (parent: Goal) =>
+      await TaskModel.find({ projectId: parent._id }),
+  },
 };
 
 export { resolvers };
