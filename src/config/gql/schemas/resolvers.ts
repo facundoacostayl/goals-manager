@@ -23,6 +23,7 @@ const resolvers = {
       try {
         const deletedGoal = await GoalModel.findByIdAndDelete(_id);
         if (!deletedGoal) throw new Error("Goal not found");
+        await TaskModel.deleteMany({ _id });
         return deletedGoal;
       } catch (e) {
         e instanceof Error && console.error(e.message);
