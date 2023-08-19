@@ -38,4 +38,4 @@ const startApolloServer = async () => {
   }
 };
 
-export { startApolloServer, port };
+export { app, startApolloServer, port };
