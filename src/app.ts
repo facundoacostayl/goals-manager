@@ -1,8 +1,8 @@
 import express from "express";
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
-import { typeDefs } from "./config/gql/schemas/type-defs.js";
-import { resolvers } from "./config/gql/schemas/resolvers.js";
+import { typeDefs } from "./config/gql/schemas/type-defs";
+import { resolvers } from "./config/gql/schemas/resolvers";
 import http from "http";
 import cors from "cors";
 

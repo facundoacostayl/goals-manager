@@ -1,5 +1,5 @@
-import { Goal, Task } from "../types/types.js";
-import { GoalModel, TaskModel } from "../../../models/mongo/index.js";
+import { Goal, Task } from "../types/types";
+import { GoalModel, TaskModel } from "../../../models/mongo/index";
 
 const resolvers = {
   Query: {

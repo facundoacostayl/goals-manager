@@ -1,5 +1,5 @@
-import { startApolloServer } from "./app.js";
-import { connectDB } from "./config/db/connection.js";
+import { startApolloServer } from "./app";
+import { connectDB } from "./config/db/connection";
 
 const main = async () => {
   try {

@@ -1,5 +1,5 @@
 import supertest from "supertest";
-import { app } from "../app.js";
+import { app } from "../app";
 
 describe("goal", () => {
   describe("get a goal", () => {

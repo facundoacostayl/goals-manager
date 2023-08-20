@@ -1,5 +1,5 @@
-import { GoalModel } from "./Goal.js";
-import { TaskModel } from "./Task.js";
+import { GoalModel } from "./Goal";
+import { TaskModel } from "./Task";
 
 const models = {
   GoalModel,
