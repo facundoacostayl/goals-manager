@@ -12,17 +12,18 @@ const app = express();
 //http Server
 const httpServer = http.createServer(app);
 
+//Apollo Server
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
 //Port
 const port = process.env.PORT || 4000;
 
 //Start Server
 const startApolloServer = async () => {
   try {
-    const server = new ApolloServer({
-      typeDefs,
-      resolvers,
-    });
-
     await server.start();
 
     //Middleware
@@ -38,4 +39,4 @@ const startApolloServer = async () => {
   }
 };
 
-export { app, startApolloServer, port };
+export { server, startApolloServer, port };
