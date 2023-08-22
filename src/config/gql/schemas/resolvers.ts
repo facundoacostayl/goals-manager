@@ -7,6 +7,9 @@ const resolvers = {
     goal: async (_: unknown, _id: string) => await GoalModel.findById(_id),
     tasks: async () => await TaskModel.find(),
     task: async (_: unknown, _id: string) => await TaskModel.findById(_id),
+    test: async (_: unknown, bool: boolean) => {
+      bool;
+    },
   },
   Mutation: {
     createGoal: async (_: unknown, { name, description }: Goal) => {

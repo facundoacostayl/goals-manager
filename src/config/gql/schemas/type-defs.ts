@@ -6,6 +6,7 @@ const typeDefs = gql`
     goal(_id: ID): Goal
     tasks: [Task]
     task(_id: ID): Task
+    test(bool: Boolean): Boolean
   }
 
   type Mutation {
