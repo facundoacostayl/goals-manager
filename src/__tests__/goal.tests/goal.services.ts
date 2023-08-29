@@ -1,24 +1,19 @@
-import fetch from "node-fetch";
+import axios from "axios";
 
-const getGoalsService = async () => {
+const getGoalsService = () => {
   try {
-    const response = await fetch("http://localhost:4000/graphql", {
+    const response = axios("http://localhost:4000/graphql", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        query: `{
-                    goals{
-                        name,
-                        description
-                    }
-                }`,
-      }),
+      data: {
+        operationName: "getGoals",
+        query: `query getGoals { name, description }`,
+      },
     });
 
-    const data = await response.json();
-    return data;
+    return response;
   } catch (e) {
     e instanceof Error && console.error(e.message);
   }
