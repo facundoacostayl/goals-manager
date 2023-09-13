@@ -1,19 +1,20 @@
 import axios from "axios";
 
-const getGoalsService = () => {
+const url = "http://localhost:4000/graphql";
+const headers = `"Content-Type": "application/json"`;
+
+const getGoalsService = async () => {
   try {
-    const response = axios("http://localhost:4000/graphql", {
+    return await axios(url, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        headers,
       },
       data: {
         operationName: "getGoals",
         query: `query getGoals { name, description }`,
       },
     });
-
-    return response;
   } catch (e) {
     e instanceof Error && console.error(e.message);
   }
